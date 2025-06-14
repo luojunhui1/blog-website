@@ -1,11 +1,12 @@
 'use client';
 
 import { useAuth } from '@/components/Auth/Context';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import crypto from 'crypto';
 
-export default function LoginPage() {
+// 创建一个内部组件来处理搜索参数
+function LoginContent() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -105,5 +106,23 @@ export default function LoginPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+// 主组件
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-neutral-50">
+        <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-xl shadow-lg">
+          <div className="animate-pulse">
+            <div className="h-8 bg-neutral-200 rounded w-3/4 mx-auto"></div>
+            <div className="h-4 bg-neutral-200 rounded w-1/2 mx-auto mt-4"></div>
+          </div>
+        </div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   );
 }

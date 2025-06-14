@@ -9,31 +9,27 @@ import React from "react";
 import Analytics from "@/components/Scripts/Analytics";
 import { AuthProvider } from '@/components/Auth/Context';
 
-import { Lato } from "next/font/google";
-import { Noto_Sans_SC } from "next/font/google";
-import { Fira_Sans } from "next/font/google";
+// 使用本地字体
+const lato = {
+  className: 'font-lato',
+  style: {
+    fontFamily: 'Lato, sans-serif',
+  },
+};
 
-const lato = Lato({
-  weight: ["300", "400", "700", "900"],
-  subsets: ["latin"],
-  variable: "--font-lato",
-  display: "swap",
-  adjustFontFallback: false,
-});
+const noto_sans_sc = {
+  className: 'font-notosans',
+  style: {
+    fontFamily: 'Noto Sans SC, sans-serif',
+  },
+};
 
-const noto_sans_sc = Noto_Sans_SC({
-  weight: ["400", "700"],
-  display: "swap",
-  variable: "--font-notosans",
-  preload: false,
-});
-
-const fira = Fira_Sans({
-  weight: ["100", "400", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-fira",
-});
+const fira = {
+  className: 'font-fira',
+  style: {
+    fontFamily: 'Fira Sans, sans-serif',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -42,7 +38,21 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${lato.variable} ${noto_sans_sc.variable} ${fira.variable}`}>
+      className={`${lato.className} ${noto_sans_sc.className} ${fira.className}`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <AuthProvider>
           <Analytics />

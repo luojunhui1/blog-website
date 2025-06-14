@@ -55,6 +55,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/katex": "^0.16.7",
     "@types/lodash": "^4.17.13",
+    "@types/mdast": "^4.0.4",
     "@types/node": "^20.17.6",
     "@types/react": "^18.3.12",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
