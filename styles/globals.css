@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .secondbg {
+    @apply border-black/10 bg-secondary/90 backdrop-blur;
+  }
+
+  .primary {
+    @apply rounded-2xl bg-white shadow-sm;
+  }
+
+  body {
+    @apply bg-[#171717];
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Notion */
+:root {
+  --notion-font: var(--font-fira), var(--font-lato),
+    var(--font-notosans), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+.notion-title,
+.notion-h {
+  @apply font-title;
+}
+
+.notion-header,
+.notion-nav-header {
+  @apply !static !z-0;
+}
+
+.notion-callout {
+  @apply !rounded-lg !border-none !backdrop-blur;
+}
+
+.notion-gallery-grid > a {
+  @apply !rounded-lg !border !border-black/10;
+}
+
+/* Code */
+.rehype-code-title {
+  @apply rounded-t-lg border border-b-0 border-black/20 bg-[#f3f3f0] px-5 py-2 font-mono text-sm font-bold;
+  position: relative;
+}
+
+.rehype-code-title::before {
+  content: "> ";
+}
+
+.rehype-code-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f56565;
+}
+
+.rehype-code-title + #pre-container > pre {
+  @apply !mt-0 !rounded-t-none;
+}
+
+.footnotes {
+  @apply pb-4 text-sm;
+}
+
+sup > a {
+  @apply !shadow-none;
+}
+
+.footnotes a {
+  @apply font-normal text-slate-500 !shadow-none;
+}
+
+.prose:not(pre) > code {
+  @apply rounded-md border border-gray-100 bg-gray-100 px-1 py-0.5;
+}
+
+.callout code {
+  @apply rounded-md border border-gray-200 bg-gray-200 px-1 py-0.5 text-gray-800;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
+}
+
+.code-line.inserted {
+  background-color: rgba(
+    16,
+    185,
+    129,
+    0.2
+  ); /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  background-color: rgba(
+    239,
+    68,
+    68,
+    0.2
+  ); /* Set deleted line (-) color */
+}
+
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+  background-color: rgba(
+    55,
+    65,
+    81,
+    0.5
+  ); /* Set highlight bg color */
+  border-left-width: 4px;
+  border-left-color: rgb(
+    59,
+    130,
+    246
+  ); /* Set highlight accent border color */
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175); /* Line number color */
+  content: attr(line);
+}
