@@ -8,7 +8,7 @@ export const Dialog = ({ children }) => {
       </div>
       <div className="flex-shrink-0">
         <div>
-          <Avatar className="h-16 w-16" />
+          <Avatar />
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@ export const DialogBack = ({ children }) => {
       <div
         style={{ transform: `scale(-1, 1)` }}
         className="flex-shrink-0">
-        <Avatar className="h-16 w-16" />
+        <Avatar />
       </div>
       <div className="rounded border border-blue-400/80 bg-blue-200/10 p-3 font-sans text-sm [&_a]:underline [&_a]:after:content-['↗']">
         {children}
